@@ -58,79 +58,32 @@ public class Maze {
 
 
 
-    public void generateMaze() {
 
 
-        dfs(1, this.enter);
-    }
+    public List<Integer> directions() {
 
-
-
-    public void dfs(int row, int col) {
-
-
-        int[] dr = {-3, 3, 0, 0};
-        int[] dc = {0, 0, 3, -3};
 
         List<Integer> directions = Arrays.asList(UP,DOWN,LEFT,RIGHT);
-
-
         Collections.shuffle(directions);
-
-
-        for(int dir: directions) {
-            int newRow = row + dr[dir];
-            int newCol = col + dc[dir];
-
-
-
-
-            while(isValid(newRow, newCol)) {
-
-
-
-                if(dir == 0) {
-                    for(int i = 0; i < 3;i++) {
-                        this.visited[newRow+i][newCol] = true;
-                        this.maze[newRow+i][newCol] = '•';
-                    }
-                    row-=3;
-
-                }
-                if(dir == 1) {
-                    for(int i = 0; i < 3;i++) {
-                        this.visited[newRow-i][newCol] = true;
-                        this.maze[newRow-i][newCol] = '•';
-                    }
-                    row+=3;
-                }
-                if(dir == 2) {
-                    for(int i = 0; i < 3;i++) {
-                        this.visited[newRow][newCol-i] = true;
-                        this.maze[newRow][newCol-i] = '•';
-                    }
-                    col+=3;
-
-                }
-                if(dir == 3) {
-                    for(int i = 0; i < 3;i++) {
-                        this.visited[newRow][newCol+i] = true;
-                        this.maze[newRow][newCol+i] = '•';
-                    }
-                    col-=3;
-                }
-
-                dfs(row,col);
-            }
-
-        }
-
+        return directions;
     }
+
+
+
 
     public Boolean isValid(int row, int col) {
         return row > 0 && row < this.rows && col > 0 && col < this.cols && !this.visited[row][col];
     }
 
+    public char[][] getMaze() {
+        return this.maze;
+    }
 
+    public boolean[][] getVisited() {
+        return visited;
+    }
 
+    public List<Integer> getDirections() {
+        return directions();
+    }
 }
