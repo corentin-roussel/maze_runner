@@ -1,3 +1,5 @@
-org/example/SimplePerfectMazeGenerator.class
+org/example/MazeGenerator.class
+org/example/SimpleImperfectMazeGenerator.class
 org/example/Main.class
+org/example/SimplePerfectMazeGenerator.class
 org/example/Maze.class

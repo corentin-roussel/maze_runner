@@ -11,9 +11,6 @@ public class Maze {
     final int LEFT = 2;
     final int RIGHT = 3;
 
-    private final int enter;
-    private final int exit;
-
     private final Random random = new Random();
 
 
@@ -27,9 +24,7 @@ public class Maze {
         this.cols = cols * 3;
         this.maze = new char[this.rows][this.cols];
         this.visited = new boolean[this.rows][this.cols];
-        this.enter = 1;
-        this.exit = this.maze[this.rows-1][this.cols-2];
-        System.out.println(this.enter);
+
 
 
         for(int i = 0; i < this.rows; i++) {
@@ -75,6 +70,10 @@ public class Maze {
         return row > 0 && row < this.rows && col > 0 && col < this.cols && !this.visited[row][col];
     }
 
+    public Boolean isValidWalls(int row, int col) {
+        return row > 0 && row < this.rows && col > 0 && col < this.cols && this.visited[row][col];
+    }
+
     public char[][] getMaze() {
         return this.maze;
     }
@@ -86,4 +85,12 @@ public class Maze {
     public List<Integer> getDirections() {
         return directions();
     }
+
+    public Integer getRows() {
+        return this.rows;
+    }
+
+    public Integer getCols() {
+        return this.cols;
+    };
 }

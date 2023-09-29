@@ -1,6 +1,6 @@
 package org.example;
 
-public class SimplePerfectMazeGenerator {
+public class SimplePerfectMazeGenerator implements MazeGenerator {
 
     private Maze maze;
 
